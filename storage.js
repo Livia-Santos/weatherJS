@@ -20,8 +20,8 @@ class Storage {
     }
 
     return {
-      city: this.city,
-      country: this.country
+      city: this.city.replace(/(^|\s)\S/g, l => l.toUpperCase()),
+      country: this.country.replace(/(^|\s)\S/g, l => l.toUpperCase())
     }
   }
 
