@@ -1,14 +1,14 @@
 class Weather {
-  constructor(city, state) {
+  constructor(city, country) {
     this.apiKey = "7d98369c3a7970af";
     this.city = city;
-    this.state = state;
+    this.country = country;
   }
   // fetch weather from api
   async getWeather() {
     const response = await fetch(`http://api.wunderground.com/api/${
       this.apiKey
-    }/conditions/q/${this.state}/${this.city}.json
+    }/geolookup/conditions/forecast/q/${this.country}/${this.city}.json
 `);
 
     const responseData = await response.json();
@@ -16,8 +16,8 @@ class Weather {
   }
 
   // Change weather location
-  changeLocation(city, state) {
+  changeLocation(city, countr) {
     this.city = city;
-    this.state = state;
+    this.country = country;
   }
 }
